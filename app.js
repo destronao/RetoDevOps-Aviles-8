@@ -285,6 +285,20 @@ const server = http.createServer((req, res) => {
 }
   // TAREA 5: Añade aquí la ruta /salud
 
+  if (req.url === '/salud') {
+  const salud = {
+    status: 'ok',
+    parque: process.env.NOMBRE_PARQUE,
+    adminEmail: process.env.ADMIN_EMAIL,
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime()
+  };
+
+  res.writeHead(200, { 'Content-Type': 'application/json' });
+  res.end(JSON.stringify(salud, null, 2));
+  return;
+}
+
   res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
   res.end('<h1>404 - Ruta no encontrada</h1>');
 });
