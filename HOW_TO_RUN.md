@@ -16,7 +16,7 @@ Esto crea una imagen basada en Node 18 Alpine con la aplicación configurada.
 
 ---
 
-Ejecución del contenedor
+## Ejecución del contenedor
 
 Para arrancar la aplicación:
 ```bash
