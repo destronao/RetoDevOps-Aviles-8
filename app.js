@@ -318,6 +318,21 @@ const server = http.createServer((req, res) => {
   }
 
   // TAREA 5: Añade aquí la ruta /salud
+  if (req.url === "/salud") {
+  const response = {
+    status: "ok",
+    parque: process.env.NOMBRE_PARQUE || "No definido",
+    admin: process.env.ADMIN_EMAIL || "No definido",
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime()
+  };
+
+  res.writeHead(200, { "Content-Type": "application/json" });
+  res.end(JSON.stringify(response, null, 2));
+  return;
+}
+
+  // Ruta no encontrada
 
   res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
   res.end('<h1>404 - Ruta no encontrada</h1>');
