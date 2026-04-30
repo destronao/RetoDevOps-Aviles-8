@@ -1,4 +1,3 @@
-const http = require('http');
 const fs = require('fs');
 
 // ============================================
@@ -274,6 +273,15 @@ const server = http.createServer((req, res) => {
   }
 
   // TAREA 2: Añade aquí la ruta /aerogeneradores
+
+  if (req.url === '/aerogeneradores') {
+  res.writeHead(200, { 'Content-Type': 'text/html' });
+  res.end(`
+    <h1>Aerogeneradores</h1>
+    <p>Listado de aerogeneradores del parque.</p>
+  `);
+  return;
+}
   // TAREA 5: Añade aquí la ruta /salud
 
   res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
