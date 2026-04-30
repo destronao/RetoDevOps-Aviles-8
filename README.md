@@ -27,3 +27,16 @@ De esta forma, los datos se almacenan fuera del contenedor y se mantienen inclus
 
 ```bash
 docker volume create datos-eolica
+
+##  Logs y ejecución en background
+
+El contenedor se ha ejecutado en modo background (`-d`), lo que permite que la aplicación funcione sin bloquear la terminal.
+
+Tras realizar varias peticiones a las rutas `/`, `/aerogeneradores` y `/salud`, se han analizado los logs del contenedor para comprobar su comportamiento.
+
+### Comandos utilizados
+
+Ver todos los logs:
+
+```bash
+docker logs eolica-naranco
