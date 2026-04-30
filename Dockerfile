@@ -1,4 +1,6 @@
 FROM node:18-alpine
+ENV PUERTO=8080
+ENV NOMBRE_PARQUE='Eólica Naranco S.L.'
 WORKDIR /app
 COPY app.js .
 RUN mkdir -p /data
