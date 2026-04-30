@@ -61,6 +61,38 @@ docker run -p 8080:8080 --name eolica-naranco -v visitas-eolica:/data eolica-nar
 
 ---
 
+## 📜 Logs y ejecución en segundo plano
+
+Cuando un contenedor se ejecuta en modo background (`-d`), no vemos directamente lo que ocurre dentro. Para ello utilizamos los logs.
+
+### Ejecutar en segundo plano
+
+```bash
+docker run -d -p 8080:8080 --env-file .env --name eolica-naranco eolica-naranco
+```
+
+### Ver logs del contenedor
+```bash
+docker logs eolica-naranco
+```
+
+### Ver logs en tiempo real
+```bash
+docker logs -f eolica-naranco
+```
+
+### Ver solo las últimas líneas
+```bash
+docker logs -f -t 20 eolica-naranco
+```
+
+### Listar todos los contenedores (incluidos los parados)
+```bash
+docker ps -a
+```
+
+---
+
 ## Problemas comunes
 
 ### Dockerfile no encontrado
@@ -81,3 +113,6 @@ docker run -p 8080:8080 --name eolica-naranco -v visitas-eolica:/data eolica-nar
 * Siempre reconstruir la imagen tras cambios
 * Mantener coherencia entre código y contenedor
 * Usar nombres claros para imágenes y contenedores
+* Los logs son esenciales para depurar errores en contenedores
+* En producción, suelen enviarse a sistemas externos (ELK, Grafana, etc.)
+* Ejecutar en background es el modo habitual en entornos reales
