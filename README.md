@@ -40,3 +40,21 @@ Ver todos los logs:
 
 ```bash
 docker logs eolica-naranco
+
+## Límites de recursos del contenedor
+
+En producción no es recomendable permitir que un contenedor consuma todos los recursos del servidor. Si una aplicación tiene un error, una fuga de memoria o una carga inesperada, podría afectar al resto de servicios.
+
+Para evitarlo, se han probado límites de memoria y CPU en el contenedor de la aplicación.
+
+### Ejecución con límites de recursos
+
+```bash
+docker run -d \
+  --env-file .env \
+  -v datos-eolica:/data \
+  --memory='128m' \
+  --cpus='0.5' \
+  --name eolica-naranco \
+  -p 8080:8080 \
+  eolica-naranco
