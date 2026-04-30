@@ -20,12 +20,12 @@ Esto crea una imagen basada en Node 18 Alpine con la aplicación configurada.
 
 Para arrancar la aplicación:
 ```bash
-docker run -p 8080:8080 eolica-naranco
+docker run -p 8080:8080 -v visitas-eolica:/data eolica-naranco
 ```
 
 Opcional (en segundo plano):
 ```bash
-docker run -d -p 8080:8080 --name eolica-naranco eolica-naranco
+docker run -d -p 8080:8080 --name eolica-naranco -v visitas-eolica:/data eolica-naranco
 ```
 
 ---
@@ -56,7 +56,7 @@ docker build -t eolica-naranco .
 
 4. Arrancar el contenedor:
 ```bash
-docker run -p 8080:8080 eolica
+docker run -p 8080:8080 --name eolica-naranco -v visitas-eolica:/data eolica-naranco
 ```
 
 ---
