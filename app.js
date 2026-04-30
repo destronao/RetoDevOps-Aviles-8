@@ -260,6 +260,7 @@ function paginaPrincipal(visitas) {
 // SERVIDOR
 // ============================================
 
+const http = require('http');
 const server = http.createServer((req, res) => {
   const visitas = leerVisitas() + 1;
   guardarVisitas(visitas);
